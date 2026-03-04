@@ -122,6 +122,14 @@ POST `/withdraw` — withdraw money
 POST `/transfer` — transfer funds  
 GET `/transactions/{account_id}` — view transaction history  
 
+## API Documentation
+
+Once the server is running, open:
+
+http://127.0.0.1:8000/docs
+
+FastAPI automatically generates interactive API documentation where you can test all endpoints.
+
 ---
 
 ## Author
