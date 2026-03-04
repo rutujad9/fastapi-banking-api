@@ -1,5 +1,10 @@
 # FastAPI Banking API
 
+![Python](https://img.shields.io/badge/Python-3.9-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
+![Database](https://img.shields.io/badge/Database-SQLite-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 A RESTful backend API that simulates basic banking operations such as user registration, deposits, withdrawals, transfers, and transaction history tracking.
 
 The project is built using FastAPI and SQLAlchemy and demonstrates backend development concepts including API design, database modeling, and transaction logging.
