@@ -1,6 +1,8 @@
 # FastAPI Banking API
 
-A simple banking-style backend API built using FastAPI and SQLAlchemy.
+A RESTful backend API that simulates basic banking operations such as user registration, deposits, withdrawals, transfers, and transaction history tracking.
+
+The project is built using FastAPI and SQLAlchemy and demonstrates backend development concepts including API design, database modeling, and transaction logging.
 
 This project demonstrates basic backend development concepts such as:
 
@@ -121,6 +123,32 @@ POST `/deposit` — deposit money
 POST `/withdraw` — withdraw money  
 POST `/transfer` — transfer funds  
 GET `/transactions/{account_id}` — view transaction history  
+
+---
+
+## How to Test the API
+
+1. Start the server:
+
+```
+uvicorn main:app --reload
+```
+
+2. Open the interactive API documentation:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+3. Use the Swagger interface to test endpoints such as:
+
+- Register a user
+- Deposit money
+- Withdraw money
+- Transfer money between accounts
+- View transaction history
+
+---
 
 ## API Documentation
 
