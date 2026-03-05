@@ -71,6 +71,7 @@ banking-api/
 ├── models.py        # database models
 ├── schemas.py       # request and response schemas
 ├── database.py      # database connection setup
+├── auth.py          # JWT authentication utilities
 ├── requirements.txt # project dependencies
 ├── Dockerfile
 ├── README.md
