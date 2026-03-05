@@ -82,6 +82,18 @@ pip install -r requirements.txt
 
 ---
 
+## Run with Docker
+
+Build the Docker image:
+
+docker build -t fastapi-banking-api .
+
+Run the container:
+
+docker run -p 8000:8000 fastapi-banking-api
+
+---
+
 ## Run the API
 
 ### Start the server
