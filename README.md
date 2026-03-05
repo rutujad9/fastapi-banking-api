@@ -1,5 +1,9 @@
 # FastAPI Banking API
 
+A secure banking-style backend API built with FastAPI, featuring JWT authentication, transaction logging, and Dockerized deployment.
+
+---
+
 ![Python](https://img.shields.io/badge/Python-3.9-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
 ![Database](https://img.shields.io/badge/Database-SQLite-lightgrey)
@@ -7,18 +11,19 @@
 
 A RESTful backend API that simulates basic banking operations such as user registration, deposits, withdrawals, transfers, and transaction history tracking.
 
-The project is built using FastAPI and SQLAlchemy and demonstrates backend development concepts including API design, database modeling, and transaction logging.
+The project is built using **FastAPI** and **SQLAlchemy** and demonstrates backend development concepts including API design, database modeling, secure authentication, and transaction logging.
 
-This project demonstrates basic backend development concepts such as:
+Key features of this project include:
 
-- User registration
-- Account creation
-- Deposits
-- Withdrawals
-- Money transfers
-- Transaction history
+- User registration and account creation
+- Secure authentication using **JWT tokens**
+- Deposit, withdrawal, and fund transfer operations
+- Transaction history tracking
+- Interactive API documentation using **Swagger UI**
+- Containerized deployment using **Docker**
 
-The API simulates basic banking operations and logs all transactions.
+The API simulates core banking operations while enforcing authentication for protected endpoints.
+
 
 ---
 
@@ -33,51 +38,43 @@ The API simulates basic banking operations and logs all transactions.
 
 ---
 
+## Quick Start
+
+Run the API locally in a few steps:
+
+```bash
+git clone https://github.com/rutujad9/fastapi-banking-api.git
+cd fastapi-banking-api
+
+python -m venv venv
+source venv/bin/activate
+
+pip install -r requirements.txt
+
+uvicorn main:app --reload
+```
+
+Once the server starts, open:
+
+http://127.0.0.1:8000/docs
+
+You can test the API directly using the interactive Swagger UI.
+
+---
+
 ## Project Structure
 
 ```
 banking-api/
-
-main.py — API routes and business logic  
-models.py — database models  
-schemas.py — request and response schemas  
-database.py — database connection setup  
-requirements.txt — project dependencies
-```
-
----
-
-## Installation
-
-### Clone the repository
-
-```bash
-git clone https://github.com/rutujad9/fastapi-banking-api.git
-```
-
----
-
-### Navigate to the project folder
-
-```bash
-cd fastapi-banking-api
-```
-
----
-
-### Create virtual environment
-
-```bash
-python -m venv venv
-source venv/bin/activate
-```
-
----
-
-### Install dependencies
-
-```bash
-pip install -r requirements.txt
+│
+├── main.py          # API routes and business logic
+├── models.py        # database models
+├── schemas.py       # request and response schemas
+├── database.py      # database connection setup
+├── requirements.txt # project dependencies
+├── Dockerfile
+├── README.md
+└── images/          # API documentation screenshots
 ```
 
 ---
@@ -86,31 +83,47 @@ pip install -r requirements.txt
 
 Build the Docker image:
 
+```bash
 docker build -t fastapi-banking-api .
+```
 
 Run the container:
 
-docker run -p 8000:8000 fastapi-banking-api
-
----
-
-## Run the API
-
-### Start the server
-
 ```bash
-uvicorn main:app --reload
+docker run -p 8000:8000 fastapi-banking-api
 ```
 
 ---
 
-## Open the API docs
 
-```
-http://127.0.0.1:8000/docs
-```
+## Authentication
 
-FastAPI automatically generates interactive documentation.
+This API uses **JWT authentication** to secure banking operations.
+
+### Login
+
+Use the `/login` endpoint to authenticate a user.
+
+After logging in, Swagger UI will automatically attach the JWT token to authenticated requests.
+
+Steps:
+
+1. Register a new user using `/register`
+2. Click **Authorize** in Swagger UI
+3. Enter your email in the **username** field and your password
+4. Swagger will attach the JWT token to all protected requests
+
+
+### Protected Endpoints
+
+The following endpoints require authentication:
+
+POST `/deposit` — deposit money  
+POST `/withdraw` — withdraw money  
+POST `/transfer` — transfer funds  
+GET `/transactions/{account_id}` — view transaction history
+
+Requests to these endpoints will fail if the user is not authenticated.
 
 ---
 
@@ -136,10 +149,11 @@ View all transactions related to an account.
 ## Example API Endpoints
 
 POST `/register` — create new user  
+POST `/login` — authenticate user and obtain JWT token  
 POST `/deposit` — deposit money  
 POST `/withdraw` — withdraw money  
 POST `/transfer` — transfer funds  
-GET `/transactions/{account_id}` — view transaction history  
+GET `/transactions/{account_id}` — view transaction history
 
 ---
 
@@ -160,6 +174,7 @@ http://127.0.0.1:8000/docs
 3. Use the Swagger interface to test endpoints such as:
 
 - Register a user
+- Login and authorize
 - Deposit money
 - Withdraw money
 - Transfer money between accounts
@@ -167,15 +182,6 @@ http://127.0.0.1:8000/docs
 
 ---
 
-## API Documentation
-
-Once the server is running, open:
-
-http://127.0.0.1:8000/docs
-
-FastAPI automatically generates interactive API documentation where you can test all endpoints.
-
----
 
 ## API Preview
 
@@ -193,6 +199,13 @@ FastAPI automatically generates interactive API documentation where you can test
 
 ### Transaction History
 ![Transactions](images/transactions.png)
+
+
+## License
+
+This project is licensed under the MIT License.
+
+---
 
 ## Author
 
