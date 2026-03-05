@@ -165,6 +165,23 @@ FastAPI automatically generates interactive API documentation where you can test
 
 ---
 
+## API Preview
+
+### Swagger API Documentation
+![API Docs](images/api-docs.png)
+
+### Register User
+![Register](images/register.png)
+
+### Deposit Money
+![Deposit](images/deposit.png)
+
+### Transfer Funds
+![Transfer](images/transfer.png)
+
+### Transaction History
+![Transactions](images/transactions.png)
+
 ## Author
 
 Rutuja Deshmukh  
