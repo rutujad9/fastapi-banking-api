@@ -210,5 +210,5 @@ This project is licensed under the MIT License.
 
 ## Author
 
-Rutuja Deshmukh  
+Rutuja D 
 MSc Informatik — Germany
